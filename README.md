@@ -90,16 +90,16 @@ cp .env.example .env
 
 | 变量 | 必填 | 说明 |
 |---|---|---|
-| `STEPFUN_API_KEY` | ✅ | 阶跃星辰大模型密钥 |
-| `STEPFUN_BASE_URL` | — | 默认 `https://api.stepfun.com/v1` |
-| `DASHSCOPE_API_KEY` | ✅ | 阿里云百炼嵌入模型密钥 |
-| `QWEATHER_API_KEY` | — | 和风天气密钥，不配置则天气功能降级 |
-| `QWEATHER_API_HOST` | — | 和风天气专属 API Host |
+| `STEPFUN_API_KEY` | ✅ | 模型密钥 |
+| `STEPFUN_BASE_URL` | — | 路由 |
+| `DASHSCOPE_API_KEY` | ✅ | 文本嵌入模型 |
+| `QWEATHER_API_KEY` | — | 天气api |
+| `QWEATHER_API_HOST` | — |  API Host |
 | `DOC_STORE_PATH` | — | 上传文档存储路径，默认 `./upload_files` |
 | `CHROMA_PERSIST_PATH` | — | Chroma 向量库路径，默认 `./chroma_db` |
 | `SQLITE_DB_PATH` | — | SQLite 路径，默认 `./chat.db` |
 
-> ⚠️ `.env` 已被 `.gitignore` 排除，**切勿提交到仓库**。
+
 
 ### 3. 构建前端
 
@@ -116,8 +116,8 @@ cd backend
 uvicorn app_server:app --host 0.0.0.0 --port 4389
 ```
 
-- `--host 0.0.0.0`：监听所有网卡，可通过公网 IP 访问；仅本机访问可改 `127.0.0.1`
-- 公网访问需在云控制台安全组放行 4389 端口
+- `--host 0.0.0.0`：监听所有网卡
+- 
 
 访问 http://127.0.0.1:4389 即可使用（后端自动托管 `frontend/dist`）。
 
