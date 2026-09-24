@@ -120,6 +120,8 @@ uvicorn app_server:app --host 0.0.0.0 --port 4389
 - 
 
 访问 http://127.0.0.1:4389 即可使用（后端自动托管 `frontend/dist`）。
+<img width="2560" height="1364" alt="作品" src="https://github.com/user-attachments/assets/8b52265a-d49b-4486-99ca-2b3e3273fd86" />
+
 
 ### 5. 前端开发模式（可选，热更新）
 
