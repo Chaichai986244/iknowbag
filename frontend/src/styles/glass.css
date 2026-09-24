@@ -1,0 +1,83 @@
+/* Weather card keeps a compact signal in the archive sidebar. */
+.weather-card {
+  margin: -4px 0 14px;
+}
+
+.cardContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-md);
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 4px;
+  width: 100%;
+  padding: 13px 12px 11px;
+  cursor: default;
+  background: #2d3c45;
+}
+
+.weather-card[data-state="error"] .card {
+  opacity: 0.72;
+}
+
+.city {
+  color: white;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.weather-text {
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 0.68rem;
+  font-weight: 520;
+  letter-spacing: 0;
+}
+
+.temp {
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 720;
+  line-height: 1.15;
+}
+
+.minmaxContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  width: 100%;
+  margin-top: 2px;
+}
+
+.min,
+.max {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.maxHeading,
+.minHeading {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.63rem;
+  font-weight: 620;
+}
+
+.maxTemp,
+.minTemp {
+  color: rgba(255, 255, 255, 0.64);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 520;
+}

@@ -1,0 +1,115 @@
+.message-text > :first-child {
+  margin-top: 0;
+}
+
+.message-text > :last-child {
+  margin-bottom: 0;
+}
+
+.message-text p {
+  margin: 0.7em 0;
+}
+
+.message-text h1,
+.message-text h2,
+.message-text h3,
+.message-text h4 {
+  margin: 1.15em 0 0.5em;
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+.message-text h1 {
+  font-size: 1.28rem;
+}
+
+.message-text h2 {
+  font-size: 1.16rem;
+}
+
+.message-text h3 {
+  font-size: 1.06rem;
+}
+
+.message-text h4 {
+  font-size: 1rem;
+}
+
+.message-text ul,
+.message-text ol {
+  margin: 0.65em 0;
+  padding-left: 1.5em;
+}
+
+.message-text li + li {
+  margin-top: 0.3em;
+}
+
+.message-text blockquote {
+  margin: 0.85em 0;
+  padding: 0.45em 0.85em;
+  color: var(--ink-muted);
+  background: var(--paper-surface-soft);
+  border-left: 3px solid var(--pine);
+}
+
+.message-text code {
+  padding: 0.12em 0.35em;
+  color: var(--pine-strong);
+  background: var(--paper-surface-soft);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+}
+
+.message-text pre {
+  max-width: 100%;
+  margin: 0.9em 0;
+  padding: 13px 15px;
+  overflow-x: auto;
+  color: #eef3f5;
+  background: #18202a;
+  border-radius: var(--radius-md);
+}
+
+.message-text pre code {
+  padding: 0;
+  color: inherit;
+  background: transparent;
+}
+
+.message-text a {
+  color: var(--pine);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.message-text hr {
+  margin: 1.2em 0;
+  border: 0;
+  border-top: 1px solid var(--line-soft);
+}
+
+.markdown-table-wrap {
+  max-width: 100%;
+  margin: 0.9em 0;
+  overflow-x: auto;
+}
+
+.message-text table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.message-text th,
+.message-text td {
+  padding: 8px 10px;
+  text-align: left;
+  border: 1px solid var(--line);
+}
+
+.message-text th {
+  background: var(--paper-surface-soft);
+  font-weight: 650;
+}

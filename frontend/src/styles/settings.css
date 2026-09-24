@@ -1,0 +1,201 @@
+.settings-page {
+  flex: 1;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 30px clamp(20px, 6vw, 78px);
+}
+
+.settings-panel {
+  display: grid;
+  gap: 16px;
+  width: min(980px, 100%);
+}
+
+.settings-group {
+  display: grid;
+  overflow: hidden;
+  background: var(--paper-surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+}
+
+.settings-group-title {
+  padding: 16px;
+  background: var(--paper-ground);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.settings-group-title h3 {
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+.settings-group-title p {
+  max-width: 680px;
+  margin: 6px 0 0;
+  color: var(--ink-muted);
+  font-size: 0.8rem;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.setting-row {
+  display: grid;
+  grid-template-columns: minmax(180px, 290px) minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+  min-width: 0;
+  padding: 16px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.settings-group-title + .setting-row {
+  border-top: 0;
+}
+
+.setting-copy,
+.setting-control {
+  display: grid;
+  min-width: 0;
+}
+
+.setting-label {
+  color: var(--ink);
+  font-size: 0.86rem;
+  font-weight: 680;
+  line-height: 1.35;
+}
+
+.setting-hint {
+  margin-top: 5px;
+  color: var(--ink-muted);
+  font-size: 0.74rem;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.setting-control input,
+.setting-control textarea,
+.setting-control select {
+  width: 100%;
+  min-width: 0;
+  color: var(--ink);
+  background: var(--paper-surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-small);
+  font: inherit;
+  font-size: 0.88rem;
+}
+
+.setting-control input {
+  height: 40px;
+  padding: 0 10px;
+}
+
+.setting-control textarea {
+  min-height: 120px;
+  padding: 10px;
+  line-height: 1.55;
+  resize: vertical;
+}
+
+.setting-control input:focus,
+.setting-control textarea:focus,
+.setting-control select:focus {
+  border-color: var(--pine);
+  outline: 2px solid color-mix(in srgb, var(--pine) 20%, transparent);
+}
+
+.tool-switch {
+  cursor: pointer;
+}
+
+.switch-control {
+  justify-content: start;
+}
+
+.switch-control input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.switch-track {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  background: #cdd4dc;
+  border-radius: 999px;
+  transition: background 160ms ease;
+}
+
+.switch-track::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(24, 32, 42, 0.18);
+  transition: transform 160ms ease;
+}
+
+.switch-control input:checked + .switch-track {
+  background: var(--pine);
+}
+
+.switch-control input:checked + .switch-track::after {
+  transform: translateX(20px);
+}
+
+.switch-control input:focus-visible + .switch-track {
+  outline: 2px solid color-mix(in srgb, var(--pine) 55%, transparent);
+  outline-offset: 2px;
+}
+
+.settings-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: min(980px, 100%);
+  padding: 14px 16px;
+  background: var(--paper-surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+}
+
+.settings-actions p {
+  min-width: 0;
+  margin: 0;
+  color: var(--ink-muted);
+  font-size: 0.8rem;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.settings-actions button {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 16px;
+  color: white;
+  background: var(--pine);
+  border: 1px solid var(--pine);
+  border-radius: var(--radius-md);
+  font-weight: 680;
+}
+
+.settings-actions button:hover:not(:disabled) {
+  background: var(--pine-strong);
+  border-color: var(--pine-strong);
+}
+
+.settings-actions button:disabled {
+  opacity: 0.55;
+}

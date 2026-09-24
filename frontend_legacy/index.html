@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="description" content="Know包，你的个人知识库助手">
+  <title>Know包 · 个人知识库</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/assistant_avatar.svg">
+  <link rel="stylesheet" href="/static/styles/tokens.css?v=20260803l">
+  <link rel="stylesheet" href="/static/styles/base.css?v=20260803l">
+  <link rel="stylesheet" href="/static/styles/shell.css?v=20260803l">
+  <link rel="stylesheet" href="/static/styles/chat.css?v=20260803l">
+  <link rel="stylesheet" href="/static/styles/markdown.css?v=20260803l">
+  <link rel="stylesheet" href="/static/styles/knowledge.css?v=20260803l">
+  <link rel="stylesheet" href="/static/styles/settings.css?v=20260803l">
+  <link rel="stylesheet" href="/static/styles/responsive.css?v=20260803l">
+  <link rel="stylesheet" href="/static/styles/glass.css?v=20260803l">
+</head>
+<body>
+  <svg class="svg-sprite" aria-hidden="true">
+    <symbol id="i-pack" viewBox="0 0 32 32"><path d="M6 9.5 16 4l10 5.5v13L16 28 6 22.5v-13Z"/><path d="m6 9.5 10 5.7 10-5.7M16 15.2V28M11 7l10 5.6"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4.5 5.5h15v11h-9l-5.5 3v-14Z"/><path d="M8 9h8M8 12.5h5"/></symbol>
+    <symbol id="i-library" viewBox="0 0 24 24"><path d="M5 4h4v16H5zM10.5 4h4v16h-4zM16 5l3.5-1 3.5 14.5-3.5 1z"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="m4 5 16 7-16 7 3-7-3-7ZM7 12h13"/></symbol>
+    <symbol id="i-stop" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="1"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 15V4m0 0L8 8m4-4 4 4M5 15v4h14v-4"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M7 3.5h7l4 4v13H7zM14 3.5v4h4M10 12h5M10 15.5h5"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M5 7h14M9 7V4h6v3m2 0-1 13H8L7 7m4 4v5m3-5v5"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/><path d="m19 12.6 1.7 1.3-1.9 3.3-2-.8a7.2 7.2 0 0 1-1.5.9L15 19.5H9l-.3-2.2a7.2 7.2 0 0 1-1.5-.9l-2 .8-1.9-3.3L5 12.6a6 6 0 0 1 0-1.2L3.3 10.1l1.9-3.3 2 .8a7.2 7.2 0 0 1 1.5-.9L9 4.5h6l.3 2.2a7.2 7.2 0 0 1 1.5.9l2-.8 1.9 3.3-1.7 1.3a6 6 0 0 1 0 1.2Z"/></symbol>
+    <symbol id="i-weather" viewBox="0 0 24 24"><path d="M7 16.5h9.2a3.8 3.8 0 0 0 .4-7.6 5.6 5.6 0 0 0-10.7 1.7A3 3 0 0 0 7 16.5Z"/><path d="M8 20h8M5 20h.1M19 20h.1"/></symbol>
+  </svg>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="mobile-nav">
+      <div class="brand"><span class="brand-icon"><svg><use href="#i-pack"></use></svg></span><span><strong>Know包</strong><small>把资料装进自己的知识包</small></span></div>
+      <section class="weather-card" id="sidebar-weather" aria-live="polite">
+        <span class="weather-icon"><svg><use href="#i-weather"></use></svg></span>
+        <div>
+          <strong id="weather-title">读取天气…</strong>
+          <small id="weather-detail">正在获取当前位置</small>
+        </div>
+      </section>
+      <button class="new-chat" id="new-chat"><svg><use href="#i-plus"></use></svg>新建对话</button>
+      <p class="sidebar-label">最近对话</p>
+      <nav class="conversation-list" id="conversation-list" aria-label="最近对话"></nav>
+      <div class="sidebar-bottom">
+        <button class="side-link active" data-page="chat"><svg><use href="#i-chat"></use></svg>对话</button>
+        <button class="side-link" data-page="knowledge"><svg><use href="#i-library"></use></svg>知识库 <span id="side-source-count">0</span></button>
+        <button class="side-link" data-page="settings"><svg><use href="#i-settings"></use></svg>设置</button>
+      </div>
+    </aside>
+    <div class="drawer-backdrop" id="drawer-backdrop"></div>
+
+    <main class="workspace">
+      <header class="topbar">
+        <button class="icon-button mobile-only" id="menu-button" aria-label="打开导航"><svg><use href="#i-menu"></use></svg></button>
+        <div><h1 id="page-title">新对话</h1><p id="page-subtitle">向你的资料提问</p></div>
+        <button class="library-shortcut" data-page="knowledge"><svg><use href="#i-library"></use></svg><span id="top-source-count">0 份资料</span></button>
+      </header>
+
+      <section class="page active chat-page" id="page-chat">
+        <div class="chat-scroll" id="chat-scroll">
+          <div class="messages" id="messages"></div>
+          <section class="chat-empty" id="chat-empty">
+            <span class="empty-pack"><svg><use href="#i-pack"></use></svg></span>
+            <h2>从你的资料里，拆出答案</h2>
+            <p>我会优先检索你放进 Know包的内容。</p>
+            <div class="prompt-suggestions" id="suggestions">
+              <button>概括我的知识库</button><button>列出资料的核心观点</button><button>为我制定一份学习计划</button>
+            </div>
+          </section>
+        </div>
+        <div class="composer-wrap">
+          <div class="rag-control">
+            <div class="rag-segment" role="radiogroup" aria-label="知识库检索模式">
+              <label><input type="radio" name="rag-mode" value="off"><span>关闭 RAG</span></label>
+              <label><input type="radio" name="rag-mode" value="force"><span>强制参考</span></label>
+              <label><input type="radio" name="rag-mode" value="auto" checked><span>智能筛选</span></label>
+            </div>
+            <small id="rag-hint">先检索，再由 Agent 筛选资料</small>
+          </div>
+          <form class="composer" id="composer">
+            <textarea id="chat-input" rows="1" maxlength="4000" placeholder="向你的知识包提问…"></textarea>
+            <button class="send-button" id="send-button" type="submit" aria-label="发送"><svg><use href="#i-send"></use></svg></button>
+            <button class="stop-button hidden" id="stop-button" type="button"><svg><use href="#i-stop"></use></svg>停止</button>
+          </form>
+          <small>Enter 发送 · Shift + Enter 换行</small>
+        </div>
+      </section>
+
+      <section class="page knowledge-page" id="page-knowledge">
+        <div class="page-intro"><h2>管理知识包</h2><p id="knowledge-summary">正在读取资料…</p></div>
+        <section class="upload-section">
+          <div><h3>放进新资料</h3><p>支持 PDF 和 UTF-8 TXT，单个文件不超过 30 MB。</p></div>
+          <label class="drop-zone" id="drop-zone" for="file-input"><svg><use href="#i-upload"></use></svg><strong>选择或拖放文件</strong><span>PDF / TXT</span></label>
+          <input id="file-input" type="file" accept=".pdf,.txt" hidden>
+          <div class="selected-file hidden" id="selected-file"><svg><use href="#i-file"></use></svg><span><strong id="file-name"></strong><small id="file-meta"></small></span><button class="icon-button" id="remove-file" aria-label="取消选择"><svg><use href="#i-close"></use></svg></button></div>
+          <button class="upload-button" id="upload-button" disabled><svg><use href="#i-pack"></use></svg><span>装入知识包</span></button>
+          <p class="upload-status" id="upload-status" aria-live="polite"></p>
+        </section>
+        <section class="sources-section"><div class="section-title"><h3>包里的资料</h3><span id="source-total"></span></div><div class="source-list" id="source-list"></div></section>
+      </section>
+
+      <section class="page settings-page" id="page-settings">
+        <div class="page-intro"><h2>设置</h2><p>管理知识库检索、天气显示，以及 Agent 可以调用哪些工具。</p></div>
+        <form class="settings-panel" id="settings-form">
+          <section class="settings-group settings-group-hero">
+            <div class="settings-group-title"><h3>文本切分</h3><p>这些参数会影响之后上传的 PDF / TXT。</p></div>
+            <label class="setting-field"><span>分块长度</span><input id="setting-chunk-size" name="chunk_size" type="number" min="100" max="8000" step="50" required><small>建议 500-1500。</small></label>
+            <label class="setting-field"><span>重叠长度</span><input id="setting-chunk-overlap" name="chunk_overlap" type="number" min="0" max="4000" step="10" required><small>必须小于分块长度。</small></label>
+            <label class="setting-field"><span>超过多少字符才切分</span><input id="setting-max-split" name="max_split" type="number" min="100" max="20000" step="50" required><small>短文本低于这个值会整段入库。</small></label>
+          </section>
+          <section class="settings-group">
+            <div class="settings-group-title"><h3>分隔符</h3><p>按从优先到兜底的顺序填写，每行一个。</p></div>
+            <label class="setting-field wide"><span>分割规则</span><textarea id="setting-separators" name="separators" rows="5" spellcheck="false" required></textarea><small>可写 \n\n、\n、空格、\t，也可以写普通符号。</small></label>
+          </section>
+          <section class="settings-group">
+            <div class="settings-group-title"><h3>检索</h3><p>这个参数会影响下一次提问。</p></div>
+            <label class="setting-field"><span>参考片段数 top_k</span><input id="setting-top-k" name="top_k" type="number" min="1" max="30" step="1" required><small>越大参考越多，但回答会更慢。</small></label>
+          </section>
+          <section class="settings-group tool-config-group">
+            <div class="settings-group-title"><h3>天气显示</h3><p>用于侧栏天气卡片，也供天气工具读取。API Key 固定在后端，不在前端填写。</p></div>
+            <label class="setting-field"><span>默认位置</span><input id="setting-weather-location" name="weather_default_location" type="text" placeholder="例如：北京 / 上海 / 成都"><small>浏览器无法定位时使用这个位置。</small></label>
+            <div class="weather-preview" id="settings-weather-preview"><span class="weather-icon"><svg><use href="#i-weather"></use></svg></span><div><strong>天气预览</strong><small>保存后侧栏会自动刷新。</small></div></div>
+          </section>
+          <section class="settings-group agent-tools-group">
+            <div class="settings-group-title"><h3>Agent 工具权限</h3><p>这里只控制 Agent 在对话中能不能调用工具，不影响页面上的天气显示。</p></div>
+            <label class="tool-switch"><input id="setting-agent-weather" name="agent_weather_enabled" type="checkbox"><span class="switch-track"></span><span><strong>天气工具</strong><small>允许 Agent 根据问题自主查询指定位置天气。</small></span></label>
+          </section>
+          <div class="settings-actions"><p id="settings-status" aria-live="polite">正在读取设置…</p><button id="save-settings" type="submit"><svg><use href="#i-settings"></use></svg>保存设置</button></div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="delete-dialog" class="dialog"><form method="dialog"><span class="dialog-icon"><svg><use href="#i-trash"></use></svg></span><h2>从知识包移除？</h2><p id="delete-message"></p><div><button value="cancel">取消</button><button value="confirm" class="danger">确认删除</button></div></form></dialog>
+  <dialog id="delete-chat-dialog" class="dialog"><form method="dialog"><span class="dialog-icon"><svg><use href="#i-trash"></use></svg></span><h2>删除历史对话？</h2><p id="delete-chat-message"></p><div><button value="cancel">取消</button><button value="confirm" class="danger">确认删除</button></div></form></dialog>
+  <div class="toast-region" id="toast-region" aria-live="polite"></div>
+  <script type="module" src="/static/js/app.js?v=20260803l"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+.message-text > :first-child { margin-top: 0; }
+.message-text > :last-child { margin-bottom: 0; }
+.message-text p { margin: .7em 0; }
+.message-text h1, .message-text h2, .message-text h3, .message-text h4 { margin: 1.15em 0 .5em; color: var(--ink); line-height: 1.4; }
+.message-text h1 { font-size: 1.35rem; }
+.message-text h2 { font-size: 1.2rem; }
+.message-text h3 { font-size: 1.08rem; }
+.message-text h4 { font-size: 1rem; }
+.message-text ul, .message-text ol { margin: .65em 0; padding-left: 1.5em; }
+.message-text li + li { margin-top: .3em; }
+.message-text blockquote { margin: .85em 0; padding: .45em .85em; color: var(--muted); border-left: 3px solid var(--thread-blue); background: #EEF3F2; }
+.message-text code { padding: .12em .35em; color: #8D4326; background: #EFE6D8; border-radius: 4px; font-family: "SFMono-Regular", Consolas, monospace; font-size: .88em; }
+.message-text pre { overflow-x: auto; margin: .9em 0; padding: 13px 15px; color: #F6F1E8; background: #2D322E; border-radius: 8px; }
+.message-text pre code { padding: 0; color: inherit; background: transparent; }
+.message-text a { color: var(--thread-blue); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.message-text hr { margin: 1.2em 0; border: 0; border-top: 1px solid var(--paper-edge); }
+.markdown-table-wrap { max-width: 100%; overflow-x: auto; margin: .9em 0; }
+.message-text table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+.message-text th, .message-text td { padding: 8px 10px; text-align: left; border: 1px solid var(--paper-edge); }
+.message-text th { background: #EEE8DC; font-weight: 650; }

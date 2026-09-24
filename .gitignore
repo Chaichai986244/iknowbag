@@ -1,0 +1,40 @@
+# ===== 密钥与本地环境配置（切勿提交）=====
+.env
+.env.local
+.env.*.local
+
+# ===== Python 运行时与虚拟环境 =====
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.python3.11/
+.nodejs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ===== Node.js =====
+node_modules/
+frontend/dist/
+*.log
+
+# ===== 运行时数据（含个人对话/文档，不入库）=====
+chat.db
+chat.db-*
+chroma_db/
+chroma_db.bak.*/
+chat_history/
+data/
+md5.text
+runtime_settings.json
+upload_files/*
+!upload_files/.gitkeep
+
+# ===== 本机杂项 =====
+.bashrc
+.DS_Store
+Thumbs.db

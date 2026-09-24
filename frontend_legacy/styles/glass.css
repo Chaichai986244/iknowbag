@@ -1,0 +1,316 @@
+:root {
+  --glass-bg-tint: rgba(246, 241, 232, 0.48);
+  --glass-panel: rgba(255, 253, 248, 0.62);
+  --glass-panel-strong: rgba(255, 253, 248, 0.76);
+  --glass-panel-soft: rgba(255, 253, 248, 0.42);
+  --glass-sidebar: rgba(238, 231, 219, 0.64);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-dark-border: rgba(40, 89, 67, 0.14);
+  --glass-shadow: 0 20px 60px rgba(37, 40, 36, 0.16);
+  --glass-shadow-soft: 0 12px 34px rgba(37, 40, 36, 0.1);
+}
+
+html,
+body {
+  background:
+    linear-gradient(120deg, rgba(245, 240, 230, 0.72), rgba(228, 238, 231, 0.5)),
+    url("/background/background.png") center / cover fixed no-repeat;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 16% 12%, rgba(255, 253, 248, 0.72), transparent 34%),
+    radial-gradient(circle at 88% 82%, rgba(40, 89, 67, 0.18), transparent 30%),
+    rgba(246, 241, 232, 0.14);
+}
+
+.app-shell {
+  background: transparent;
+}
+
+.sidebar,
+.topbar,
+.composer,
+.answer-paper,
+.upload-section,
+.sources-section,
+.settings-panel,
+.settings-group,
+.selected-file,
+.dialog,
+.toast {
+  border-color: var(--glass-border);
+  box-shadow: var(--glass-shadow-soft);
+  backdrop-filter: blur(22px) saturate(1.25);
+  -webkit-backdrop-filter: blur(22px) saturate(1.25);
+}
+
+.sidebar {
+  background: var(--glass-sidebar);
+  border-right-color: rgba(255, 255, 255, 0.42);
+}
+
+.workspace {
+  background: rgba(255, 253, 248, 0.24);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.topbar {
+  background: rgba(255, 253, 248, 0.56);
+  border-bottom-color: rgba(255, 255, 255, 0.45);
+}
+
+.brand-icon,
+.new-chat,
+.side-link.active,
+.settings-actions button,
+.rag-segment input:checked + span {
+  box-shadow: 0 10px 26px rgba(40, 89, 67, 0.18);
+}
+
+.new-chat,
+.settings-actions button {
+  background: rgba(40, 89, 67, 0.92);
+}
+
+.conversation-item:hover,
+.conversation-item.active,
+.conversation-row:focus-within,
+.side-link.active {
+  background: rgba(228, 238, 231, 0.72);
+}
+
+.side-link span,
+.library-shortcut,
+.prompt-suggestions button,
+.drop-zone,
+.setting-field input,
+.setting-field textarea,
+.source-summary button,
+.source-tag,
+.rag-segment,
+.dialog button {
+  background: rgba(255, 253, 248, 0.58);
+  border-color: rgba(255, 255, 255, 0.48);
+  backdrop-filter: blur(14px) saturate(1.16);
+  -webkit-backdrop-filter: blur(14px) saturate(1.16);
+}
+
+.library-shortcut,
+.prompt-suggestions button,
+.drop-zone,
+.setting-field input,
+.setting-field textarea,
+.rag-segment,
+.dialog button {
+  border: 1px solid rgba(255, 255, 255, 0.48);
+}
+
+.chat-scroll {
+  background: transparent;
+}
+
+.chat-empty {
+  color: var(--ink);
+}
+
+.empty-pack {
+  background: rgba(228, 238, 231, 0.72);
+  box-shadow: 0 14px 32px rgba(40, 89, 67, 0.14);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.message.user .message-content {
+  background: rgba(228, 238, 231, 0.74);
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  box-shadow: 0 10px 28px rgba(40, 89, 67, 0.1);
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+}
+
+.answer-paper {
+  background: var(--glass-panel-strong);
+  border-left-color: rgba(40, 89, 67, 0.86);
+  box-shadow: var(--glass-shadow);
+}
+
+.source-block {
+  border-top-color: rgba(40, 89, 67, 0.14);
+}
+
+.source-tag,
+.source-summary button {
+  color: #416f8a;
+  background: rgba(233, 240, 243, 0.72);
+}
+
+.thinking-state {
+  background: rgba(228, 238, 231, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  box-shadow: 0 8px 20px rgba(40, 89, 67, 0.08);
+}
+
+.composer-wrap {
+  background: linear-gradient(
+    transparent,
+    rgba(255, 253, 248, 0.28) 24%,
+    rgba(255, 253, 248, 0.62)
+  );
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.composer {
+  background: rgba(255, 253, 248, 0.76);
+  border-color: rgba(255, 255, 255, 0.54);
+  box-shadow: var(--glass-shadow);
+}
+
+.composer:focus-within,
+.setting-field input:focus,
+.setting-field textarea:focus {
+  border-color: rgba(40, 89, 67, 0.58);
+}
+
+.rag-control {
+  padding: 4px 2px;
+}
+
+.rag-segment {
+  background: rgba(239, 231, 218, 0.62);
+}
+
+.upload-section,
+.sources-section,
+.settings-panel {
+  background: var(--glass-panel);
+}
+
+.settings-group,
+.selected-file {
+  background: rgba(255, 253, 248, 0.5);
+}
+
+.drop-zone:hover,
+.drop-zone.dragging {
+  background: rgba(228, 238, 231, 0.74);
+  border-color: rgba(40, 89, 67, 0.58);
+}
+
+.source-item {
+  border-top-color: rgba(255, 255, 255, 0.48);
+}
+
+.dialog::backdrop {
+  background: rgba(37, 40, 36, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.toast {
+  background: rgba(37, 40, 36, 0.82);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .sidebar,
+  .topbar,
+  .composer,
+  .answer-paper,
+  .upload-section,
+  .sources-section,
+  .settings-panel,
+  .settings-group,
+  .selected-file,
+  .dialog {
+    background: rgba(255, 253, 248, 0.9);
+  }
+}
+
+@media (max-width: 860px) {
+  html,
+  body {
+    background-attachment: scroll;
+  }
+
+  .sidebar {
+    background: rgba(238, 231, 219, 0.84);
+  }
+
+  .workspace {
+    background: rgba(255, 253, 248, 0.34);
+  }
+
+  .rag-control {
+    background: rgba(255, 253, 248, 0.54);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 14px;
+    box-shadow: var(--glass-shadow-soft);
+    backdrop-filter: blur(16px) saturate(1.2);
+    -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  }
+}
+
+.weather-card {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  margin: -8px 0 14px;
+  padding: 10px;
+  color: var(--ink);
+  background: rgba(255, 253, 248, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 14px;
+  box-shadow: var(--glass-shadow-soft);
+  backdrop-filter: blur(18px) saturate(1.2);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+}
+
+.weather-card[data-state="error"] {
+  color: var(--muted);
+}
+
+.weather-icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  color: var(--thread-blue);
+  background: rgba(233, 240, 243, 0.75);
+  border-radius: 12px;
+}
+
+.weather-card strong,
+.weather-card small {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.weather-card strong {
+  font-size: 0.82rem;
+}
+
+.weather-card small {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 0.68rem;
+}
+
+.weather-preview,
+.tool-switch {
+  background: rgba(255, 253, 248, 0.58);
+  border-color: rgba(255, 255, 255, 0.48);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.42);
+  backdrop-filter: blur(14px) saturate(1.16);
+  -webkit-backdrop-filter: blur(14px) saturate(1.16);
+}
