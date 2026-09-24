@@ -43,7 +43,7 @@ Hweb/
 │   ├── cache_service.py    # Redis 缓存服务（连接池/键管理/失效策略）
 │   ├── migrate_data.py     # 旧 JSON 数据 → SQLite 迁移脚本
 │   ├── tools/              # rag_tool / weather_tool
-│   └── legacy/             # 原 Streamlit 版本文件（保留）
+│   └── legacy/             # Streamlit 版本文件
 ├── frontend/               # Vue3 前端工程
 │   ├── src/
 │   │   ├── api/            # API 客户端（NDJSON 流式解析）
@@ -52,7 +52,7 @@ Hweb/
 │   │   ├── components/     # Sidebar/TopBar/Icon/对话框等
 │   │   └── views/          # ChatView/KnowledgeView/SettingsView
 │   └── vite.config.js      # 开发代理 → 后端
-├── frontend_legacy/        # 原原生 JS 前端（保留）
+├── frontend_legacy/        # 原生 JS 前端
 ├── assets/                 # 头像等静态资源
 ├── background/             # 背景图
 ├── tests/                  # unittest 测试
